@@ -107,3 +107,46 @@ before-runs check, in `results/static_log.txt`, which is UTF-16 encoded).
 - `--mode repeat` reruns seed 501 at 50 req/s five times (random, p2c_cost, shared_cost_ts_fast,
   softmax_cost) to measure run-to-run timing noise; the CSV has a `rep` column.
 - Killing the runner hard (not Ctrl+C / exception) can orphan the server processes.
+
+## Findings so far
+Full tables are in `results/summary.md` (12 seeds, 600 requests per run, 50 and 150 req/s).
+- Reproduced in direction: learned strategies beat random and power-of-two-choices;
+  `shared_cost_ts_fast` is the best learned strategy at both rates; the app-aware softmax beats its
+  app-blind twin by about 0.021 cost per request (the paper reports 0.020-0.022); selection overhead
+  is under 0.1 ms; after an injected degradation `shared_cost_ts_fast` recovers fastest.
+- Not reproduced: the paper's gap between the per-app oracle and the app-blind oracle (0.084-0.089;
+  here 0.030-0.043), and the absolute cost of the random, `p2c_cost` and `arms_app_ts` baselines
+  (0.02-0.04 lower here).
+- Agreement in absolute values is not a verification, because the cost weights and several
+  strategies are reconstructions (see the ASSUMED and reconstruction sections above).
+
+## Next steps
+In rough order of value:
+1. **Get the missing definitions from the paper's authors.** The original `selector/app_profiles.py`
+   (cost weights `w_fail`, `w_lat`, `lat_ref` and the application mix), the implementation of
+   `shared_cost_ts_fast` and `p2c_cost`, and the definitions of `oracle_blind_split` and
+   `oracle_per_app_cost_v6`. Replace the ASSUMED block in `common.py` and the reconstructions in
+   `policies.py`, then rerun everything. This is the only route to an actual verification.
+2. **Settle the server profile.** The paper's Table 7.2 and its Figure 7.4 launch log disagree; this
+   code uses Table 7.2. Confirm which one the reported runs used.
+3. **Define the drift scenario.** The paper's `D1_premium_degrades` is unspecified; the scenario here
+   (S7 to 150 ms base latency and 0.30 failure probability at request 200, no restore) is invented.
+   Add the paper's other scenarios (load surge, intermittent flakiness, recovery) once defined.
+4. **Sensitivity analysis on the assumed weights.** Rerun the static experiment over a grid of
+   weights and mixes and report which conclusions (ranking, app-aware vs app-blind gap) survive.
+   Do not pick the grid point that best matches the paper and present it as a reproduction.
+5. **Implement the missing baselines and components** named in the paper but not built here:
+   `lowest_load`, `static_weighted_score`, the linear contextual bandit (`global_bandit` and
+   per-app), the random-forest ranker, the drift detector, and event-loop lag measurement.
+6. **Report regret.** The paper defines cumulative regret but never reports it; add it to
+   `analyze.py` against `oracle_per_app`.
+7. **Reduce timing noise.** Repeating one seed gives a cost standard deviation of 0.005-0.010 for
+   learning strategies, about half the seed-to-seed spread. Use more seeds (30 or more), repeat each
+   seed, and run on an otherwise idle machine; consider a second machine for the servers.
+8. **Collect the 50 req/s static data in one session.** The current data spans several sessions
+   because the first was interrupted (see the data-collection note).
+9. **Add figures.** `analyze.py` writes tables only; add the equivalents of the paper's F1-F7 once
+   matplotlib is available.
+10. **Add unit tests** for the cost function, the policies' cold-start behaviour and the backend's
+    control channel, and a `requirements.txt` pinning the Python and numpy versions used
+    (Python 3.12.10, numpy 1.26.4).
