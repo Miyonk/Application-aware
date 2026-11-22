@@ -333,7 +333,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", default=RESULTS)
     args = ap.parse_args()
-    parts = ["# Reimplementation results summary", ""]
+    parts = ["# Results summary", ""]
     any_data = False
     for name, title in [("smoke", "Smoke test"), ("static", "Static experiment")]:
         rows = load(os.path.join(args.results, f"{name}.csv"))

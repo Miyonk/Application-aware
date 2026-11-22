@@ -1,4 +1,4 @@
-# Reimplementation results summary
+# Results summary
 
 ## Static experiment
 
