@@ -1,0 +1,71 @@
+all 8 servers ready
+[before runs]
+Sleep accuracy (asyncio.sleep measured with perf_counter, 20 reps each), ms:
+process  target     mean   median      min      max
+client       15   15.702   15.593   15.113   17.093
+client       30   30.532   30.497   30.181   31.132
+client       45   45.640   45.607   45.084   46.399
+S1           15   15.665   15.714   15.189   16.221
+S1           30   30.536   30.413   30.092   31.216
+S1           45   45.707   45.555   45.145   46.466
+S2           15   15.565   15.552   15.104   16.295
+S2           30   30.532   30.480   30.161   31.222
+S2           45   45.640   45.634   45.084   46.356
+S3           15   15.663   15.749   15.206   16.229
+S3           30   30.535   30.432   30.113   31.203
+S3           45   45.707   45.554   45.144   46.464
+S4           15   15.659   15.713   15.200   16.230
+S4           30   30.537   30.432   30.115   31.215
+S4           45   45.705   45.546   45.140   46.455
+S5           15   15.559   15.528   15.089   16.270
+S5           30   30.535   30.459   30.178   31.226
+S5           45   45.688   45.667   45.188   46.358
+S6           15   15.559   15.573   15.124   16.309
+S6           30   30.534   30.512   30.160   31.210
+S6           45   45.688   45.672   45.165   46.399
+S7           15   15.658   15.735   15.114   16.208
+S7           30   30.534   30.421   30.116   31.205
+S7           45   45.709   45.547   45.110   46.460
+S8           15   15.558   15.550   15.095   16.347
+S8           30   30.532   30.492   30.169   31.128
+S8           45   45.640   45.637   45.086   46.394
+sleep accuracy within 2 ms (mean): True
+6 runs planned
+[1/6] mode=static rate=50 seed=508 rep=0 round_robin            mean_cost=0.1694 errors={'simulated_failure': 9, 'timeout': 1} max_dispatch_lag_ms=2.7
+[2/6] mode=static rate=50 seed=508 rep=0 lowest_latency         mean_cost=0.2793 errors={'simulated_failure': 61} max_dispatch_lag_ms=2.6
+[3/6] mode=static rate=50 seed=508 rep=0 p2c_cost               mean_cost=0.1642 errors={'simulated_failure': 14, 'timeout': 2} max_dispatch_lag_ms=2.7
+[4/6] mode=static rate=50 seed=508 rep=0 arms_app_ts            mean_cost=0.1287 errors={'simulated_failure': 19, 'timeout': 3} max_dispatch_lag_ms=5.4
+[5/6] mode=static rate=50 seed=508 rep=0 shared_cost_ts_fast    mean_cost=0.1081 errors={'simulated_failure': 24, 'timeout': 2} max_dispatch_lag_ms=2.4
+[6/6] mode=static rate=50 seed=508 rep=0 softmax_cost           mean_cost=0.1371 errors={'simulated_failure': 21, 'timeout': 2} max_dispatch_lag_ms=2.5
+[after runs]
+Sleep accuracy (asyncio.sleep measured with perf_counter, 20 reps each), ms:
+process  target     mean   median      min      max
+client       15   15.717   15.625   15.139   16.967
+client       30   30.684   30.583   30.140   32.045
+client       45   45.641   45.591   45.184   46.509
+S1           15   15.706   15.528   15.106   16.991
+S1           30   30.769   30.776   30.140   32.014
+S1           45   45.718   45.569   45.061   47.442
+S2           15   15.702   15.519   15.171   16.989
+S2           30   30.769   30.769   30.128   32.022
+S2           45   45.778   45.696   45.121   46.954
+S3           15   15.663   15.573   15.124   17.009
+S3           30   30.617   30.720   30.141   31.096
+S3           45   45.732   45.831   45.064   46.568
+S4           15   15.697   15.695   15.111   16.986
+S4           30   30.617   30.722   30.081   31.110
+S4           45   45.733   45.837   45.085   46.477
+S5           15   15.699   15.669   15.129   16.985
+S5           30   30.614   30.713   30.075   31.133
+S5           45   45.732   45.829   45.075   46.616
+S6           15   15.692   15.520   15.167   16.997
+S6           30   30.563   30.651   30.080   31.106
+S6           45   45.787   45.884   45.068   46.483
+S7           15   15.686   15.529   15.041   16.996
+S7           30   30.614   30.730   30.085   31.099
+S7           45   45.734   45.819   45.086   46.541
+S8           15   15.679   15.546   15.106   16.991
+S8           30   30.617   30.730   30.066   31.109
+S8           45   45.655   45.752   45.059   46.276
+sleep accuracy within 2 ms (mean): True
+servers stopped

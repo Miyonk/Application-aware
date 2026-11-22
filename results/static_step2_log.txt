@@ -1,0 +1,105 @@
+all 8 servers ready
+[before runs]
+Sleep accuracy (asyncio.sleep measured with perf_counter, 20 reps each), ms:
+process  target     mean   median      min      max
+client       15   15.583   15.400   15.096   17.092
+client       30   30.592   30.586   30.127   31.151
+client       45   45.719   45.706   45.156   46.677
+S1           15   15.459   15.372   15.109   16.081
+S1           30   30.592   30.503   30.112   31.134
+S1           45   45.721   45.730   45.125   46.697
+S2           15   15.458   15.369   15.122   16.080
+S2           30   30.591   30.473   30.123   31.138
+S2           45   45.719   45.743   45.154   46.694
+S3           15   15.456   15.379   15.117   16.104
+S3           30   30.591   30.478   30.145   31.140
+S3           45   45.721   45.739   45.152   46.684
+S4           15   15.453   15.357   15.098   16.083
+S4           30   30.592   30.536   30.114   31.133
+S4           45   45.721   45.744   45.118   46.691
+S5           15   15.453   15.368   15.137   16.089
+S5           30   30.593   30.500   30.140   31.136
+S5           45   45.720   45.740   45.143   46.677
+S6           15   15.451   15.377   15.157   16.100
+S6           30   30.593   30.495   30.141   31.085
+S6           45   45.882   45.973   45.254   46.494
+S7           15   15.888   15.834   15.062   17.504
+S7           30   30.692   30.521   30.106   31.935
+S7           45   45.710   45.664   45.116   47.531
+S8           15   15.888   15.840   15.080   17.504
+S8           30   30.594   30.498   30.113   31.557
+S8           45   45.619   45.645   45.092   46.545
+sleep accuracy within 2 ms (mean): True
+40 runs planned
+[1/40] mode=static rate=50 seed=509 rep=0 random                 mean_cost=0.1585 errors={'simulated_failure': 15} max_dispatch_lag_ms=2.5
+[2/40] mode=static rate=50 seed=509 rep=0 round_robin            mean_cost=0.1763 errors={'simulated_failure': 15} max_dispatch_lag_ms=3.6
+[3/40] mode=static rate=50 seed=509 rep=0 lowest_latency         mean_cost=0.1950 errors={'simulated_failure': 64} max_dispatch_lag_ms=2.8
+[4/40] mode=static rate=50 seed=509 rep=0 p2c_cost               mean_cost=0.1401 errors={'simulated_failure': 13} max_dispatch_lag_ms=2.3
+[5/40] mode=static rate=50 seed=509 rep=0 arms_app_ts            mean_cost=0.1304 errors={'simulated_failure': 15, 'timeout': 2} max_dispatch_lag_ms=2.7
+[6/40] mode=static rate=50 seed=509 rep=0 shared_cost_ts_fast    mean_cost=0.1102 errors={'simulated_failure': 17, 'timeout': 5} max_dispatch_lag_ms=2.6
+[7/40] mode=static rate=50 seed=509 rep=0 softmax_cost           mean_cost=0.1215 errors={'simulated_failure': 17, 'timeout': 4} max_dispatch_lag_ms=2.5
+[8/40] mode=static rate=50 seed=509 rep=0 softmax_cost_global    mean_cost=0.1584 errors={'simulated_failure': 9, 'timeout': 2} max_dispatch_lag_ms=2.7
+[9/40] mode=static rate=50 seed=509 rep=0 oracle_per_app         mean_cost=0.0853 errors={'simulated_failure': 19} max_dispatch_lag_ms=2.4
+[10/40] mode=static rate=50 seed=509 rep=0 oracle_blind           mean_cost=0.1086 errors={'simulated_failure': 2} max_dispatch_lag_ms=2.9
+[11/40] mode=static rate=50 seed=510 rep=0 round_robin            mean_cost=0.1805 errors={'simulated_failure': 17, 'timeout': 2} max_dispatch_lag_ms=5.2
+[12/40] mode=static rate=50 seed=510 rep=0 lowest_latency         mean_cost=0.2124 errors={'simulated_failure': 73} max_dispatch_lag_ms=2.6
+[13/40] mode=static rate=50 seed=510 rep=0 p2c_cost               mean_cost=0.1624 errors={'simulated_failure': 13, 'timeout': 2} max_dispatch_lag_ms=2.4
+[14/40] mode=static rate=50 seed=510 rep=0 arms_app_ts            mean_cost=0.1411 errors={'simulated_failure': 30, 'timeout': 2} max_dispatch_lag_ms=4.0
+[15/40] mode=static rate=50 seed=510 rep=0 shared_cost_ts_fast    mean_cost=0.1239 errors={'simulated_failure': 27, 'timeout': 7} max_dispatch_lag_ms=2.8
+[16/40] mode=static rate=50 seed=510 rep=0 softmax_cost           mean_cost=0.1424 errors={'simulated_failure': 31, 'timeout': 2} max_dispatch_lag_ms=2.4
+[17/40] mode=static rate=50 seed=510 rep=0 softmax_cost_global    mean_cost=0.1586 errors={'simulated_failure': 14, 'timeout': 4} max_dispatch_lag_ms=2.5
+[18/40] mode=static rate=50 seed=510 rep=0 oracle_per_app         mean_cost=0.0909 errors={'simulated_failure': 26} max_dispatch_lag_ms=2.9
+[19/40] mode=static rate=50 seed=510 rep=0 oracle_blind           mean_cost=0.1240 errors={'simulated_failure': 5} max_dispatch_lag_ms=2.6
+[20/40] mode=static rate=50 seed=510 rep=0 random                 mean_cost=0.1724 errors={'simulated_failure': 19, 'timeout': 2} max_dispatch_lag_ms=2.2
+[21/40] mode=static rate=50 seed=511 rep=0 lowest_latency         mean_cost=0.2557 errors={'simulated_failure': 75} max_dispatch_lag_ms=2.8
+[22/40] mode=static rate=50 seed=511 rep=0 p2c_cost               mean_cost=0.1581 errors={'simulated_failure': 11, 'timeout': 3} max_dispatch_lag_ms=2.7
+[23/40] mode=static rate=50 seed=511 rep=0 arms_app_ts            mean_cost=0.1515 errors={'simulated_failure': 18, 'timeout': 2} max_dispatch_lag_ms=2.5
+[24/40] mode=static rate=50 seed=511 rep=0 shared_cost_ts_fast    mean_cost=0.1248 errors={'simulated_failure': 22, 'timeout': 6} max_dispatch_lag_ms=4.5
+[25/40] mode=static rate=50 seed=511 rep=0 softmax_cost           mean_cost=0.1438 errors={'simulated_failure': 19, 'timeout': 2} max_dispatch_lag_ms=2.4
+[26/40] mode=static rate=50 seed=511 rep=0 softmax_cost_global    mean_cost=0.1559 errors={'simulated_failure': 9, 'timeout': 5} max_dispatch_lag_ms=2.3
+[27/40] mode=static rate=50 seed=511 rep=0 oracle_per_app         mean_cost=0.0893 errors={'simulated_failure': 18} max_dispatch_lag_ms=2.4
+[28/40] mode=static rate=50 seed=511 rep=0 oracle_blind           mean_cost=0.1145 errors={'simulated_failure': 2} max_dispatch_lag_ms=2.9
+[29/40] mode=static rate=50 seed=511 rep=0 random                 mean_cost=0.1563 errors={'simulated_failure': 14, 'timeout': 1} max_dispatch_lag_ms=2.7
+[30/40] mode=static rate=50 seed=511 rep=0 round_robin            mean_cost=0.1689 errors={'simulated_failure': 14} max_dispatch_lag_ms=2.7
+[31/40] mode=static rate=50 seed=512 rep=0 p2c_cost               mean_cost=0.1844 errors={'simulated_failure': 13, 'timeout': 3} max_dispatch_lag_ms=2.8
+[32/40] mode=static rate=50 seed=512 rep=0 arms_app_ts            mean_cost=0.1368 errors={'simulated_failure': 17, 'timeout': 2} max_dispatch_lag_ms=2.6
+[33/40] mode=static rate=50 seed=512 rep=0 shared_cost_ts_fast    mean_cost=0.1103 errors={'simulated_failure': 23, 'timeout': 4} max_dispatch_lag_ms=2.9
+[34/40] mode=static rate=50 seed=512 rep=0 softmax_cost           mean_cost=0.1448 errors={'simulated_failure': 20, 'timeout': 4} max_dispatch_lag_ms=3.1
+[35/40] mode=static rate=50 seed=512 rep=0 softmax_cost_global    mean_cost=0.1497 errors={'simulated_failure': 21, 'timeout': 4} max_dispatch_lag_ms=2.2
+[36/40] mode=static rate=50 seed=512 rep=0 oracle_per_app         mean_cost=0.0865 errors={'simulated_failure': 16} max_dispatch_lag_ms=2.9
+[37/40] mode=static rate=50 seed=512 rep=0 oracle_blind           mean_cost=0.1173 errors={'simulated_failure': 3} max_dispatch_lag_ms=2.6
+[38/40] mode=static rate=50 seed=512 rep=0 random                 mean_cost=0.1811 errors={'simulated_failure': 13, 'timeout': 2} max_dispatch_lag_ms=5.0
+[39/40] mode=static rate=50 seed=512 rep=0 round_robin            mean_cost=0.1478 errors={'simulated_failure': 11, 'timeout': 2} max_dispatch_lag_ms=2.6
+[40/40] mode=static rate=50 seed=512 rep=0 lowest_latency         mean_cost=0.2556 errors={'simulated_failure': 72} max_dispatch_lag_ms=2.7
+[after runs]
+Sleep accuracy (asyncio.sleep measured with perf_counter, 20 reps each), ms:
+process  target     mean   median      min      max
+client       15   15.706   15.711   15.103   16.647
+client       30   30.757   30.733   30.102   32.069
+client       45   45.661   45.694   45.094   46.533
+S1           15   15.638   15.692   15.082   16.107
+S1           30   30.657   30.778   30.087   31.650
+S1           45   45.662   45.708   45.109   46.501
+S2           15   15.636   15.696   15.103   16.147
+S2           30   30.657   30.730   30.112   31.302
+S2           45   45.517   45.534   45.072   46.002
+S3           15   15.635   15.696   15.081   16.146
+S3           30   30.658   30.748   30.093   31.243
+S3           45   45.662   45.703   45.131   46.526
+S4           15   15.633   15.688   15.093   16.113
+S4           30   30.657   30.728   30.107   31.315
+S4           45   45.663   45.676   45.135   46.587
+S5           15   15.629   15.796   15.072   16.304
+S5           30   30.658   30.805   30.101   31.605
+S5           45   45.517   45.547   45.098   46.227
+S6           15   15.627   15.669   15.108   16.153
+S6           30   30.657   30.730   30.123   31.282
+S6           45   45.517   45.525   45.083   46.067
+S7           15   15.624   15.672   15.093   16.105
+S7           30   30.658   30.798   30.101   31.674
+S7           45   45.517   45.536   45.063   46.081
+S8           15   15.623   15.675   15.106   16.115
+S8           30   30.658   30.734   30.145   31.320
+S8           45   45.517   45.582   45.073   45.990
+sleep accuracy within 2 ms (mean): True
+servers stopped

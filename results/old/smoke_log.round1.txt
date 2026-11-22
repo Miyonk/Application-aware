@@ -1,0 +1,85 @@
+﻿all 8 servers ready
+[before runs]
+Sleep accuracy (asyncio.sleep measured with perf_counter, 20 reps each), ms:
+process  target     mean   median      min      max
+client       15   15.661   15.648   15.103   16.331
+client       30   30.506   30.465   30.148   30.945
+client       45   45.642   45.495   45.135   46.354
+S1           15   15.690   15.605   15.174   16.339
+S1           30   30.553   30.554   30.215   31.031
+S1           45   45.753   45.814   45.200   46.265
+S2           15   15.686   15.607   15.081   17.035
+S2           30   30.557   30.579   30.161   30.971
+S2           45   45.748   45.735   45.133   46.265
+S3           15   15.684   15.599   15.082   17.040
+S3           30   30.555   30.559   30.147   30.952
+S3           45   45.751   45.727   45.171   46.346
+S4           15   15.684   15.620   15.084   17.046
+S4           30   30.560   30.561   30.153   30.970
+S4           45   45.750   45.732   45.221   46.345
+S5           15   15.683   15.640   15.234   16.264
+S5           30   30.556   30.586   30.161   31.035
+S5           45   45.748   45.815   45.141   46.335
+S6           15   15.680   15.601   15.205   16.284
+S6           30   30.556   30.574   30.148   30.947
+S6           45   45.752   45.792   45.181   46.346
+S7           15   15.675   15.634   15.209   16.256
+S7           30   30.557   30.575   30.161   30.949
+S7           45   45.750   45.736   45.160   46.345
+S8           15   15.677   15.638   15.211   16.266
+S8           30   30.558   30.577   30.134   30.954
+S8           45   45.756   45.736   45.275   46.401
+sleep accuracy within 2 ms (mean): True
+20 runs planned
+[1/20] mode=smoke rate=50 seed=501 random                 mean_cost=0.1529 errors={'simulated_failure': 5, 'timeout': 1} max_dispatch_lag_ms=2.0
+[2/20] mode=smoke rate=50 seed=501 round_robin            mean_cost=0.1862 errors={'simulated_failure': 5, 'timeout': 1} max_dispatch_lag_ms=2.5
+[3/20] mode=smoke rate=50 seed=501 lowest_latency         mean_cost=0.4252 errors={'simulated_failure': 31} max_dispatch_lag_ms=2.5
+[4/20] mode=smoke rate=50 seed=501 p2c_cost               mean_cost=0.1363 errors={'simulated_failure': 3} max_dispatch_lag_ms=2.4
+[5/20] mode=smoke rate=50 seed=501 arms_app_ts            mean_cost=0.1619 errors={'simulated_failure': 6, 'timeout': 1} max_dispatch_lag_ms=2.0
+[6/20] mode=smoke rate=50 seed=501 shared_cost_ts_fast    mean_cost=0.1052 errors={'simulated_failure': 1, 'timeout': 3} max_dispatch_lag_ms=2.4
+[7/20] mode=smoke rate=50 seed=501 softmax_cost           mean_cost=0.1680 errors={'simulated_failure': 6, 'timeout': 1} max_dispatch_lag_ms=2.3
+[8/20] mode=smoke rate=50 seed=501 softmax_cost_global    mean_cost=0.1471 errors={'simulated_failure': 3, 'timeout': 1} max_dispatch_lag_ms=2.0
+[9/20] mode=smoke rate=50 seed=501 oracle_per_app         mean_cost=0.0902 errors={} max_dispatch_lag_ms=2.0
+[10/20] mode=smoke rate=50 seed=501 oracle_blind           mean_cost=0.0881 errors={} max_dispatch_lag_ms=2.0
+[11/20] mode=smoke rate=50 seed=502 round_robin            mean_cost=0.1729 errors={'simulated_failure': 5} max_dispatch_lag_ms=2.4
+[12/20] mode=smoke rate=50 seed=502 lowest_latency         mean_cost=0.3098 errors={'simulated_failure': 21} max_dispatch_lag_ms=2.0
+[13/20] mode=smoke rate=50 seed=502 p2c_cost               mean_cost=0.2110 errors={'simulated_failure': 5, 'timeout': 3} max_dispatch_lag_ms=2.0
+[14/20] mode=smoke rate=50 seed=502 arms_app_ts            mean_cost=0.2148 errors={'simulated_failure': 8, 'timeout': 1} max_dispatch_lag_ms=2.3
+[15/20] mode=smoke rate=50 seed=502 shared_cost_ts_fast    mean_cost=0.1382 errors={'simulated_failure': 5, 'timeout': 1} max_dispatch_lag_ms=2.0
+[16/20] mode=smoke rate=50 seed=502 softmax_cost           mean_cost=0.1964 errors={'simulated_failure': 7, 'timeout': 3} max_dispatch_lag_ms=2.5
+[17/20] mode=smoke rate=50 seed=502 softmax_cost_global    mean_cost=0.2105 errors={'simulated_failure': 6, 'timeout': 3} max_dispatch_lag_ms=2.0
+[18/20] mode=smoke rate=50 seed=502 oracle_per_app         mean_cost=0.1243 errors={'simulated_failure': 4} max_dispatch_lag_ms=2.5
+[19/20] mode=smoke rate=50 seed=502 oracle_blind           mean_cost=0.1516 errors={'simulated_failure': 3} max_dispatch_lag_ms=2.2
+[20/20] mode=smoke rate=50 seed=502 random                 mean_cost=0.1908 errors={'simulated_failure': 6} max_dispatch_lag_ms=2.5
+[after runs]
+Sleep accuracy (asyncio.sleep measured with perf_counter, 20 reps each), ms:
+process  target     mean   median      min      max
+client       15   15.703   15.732   15.139   16.154
+client       30   30.579   30.549   30.088   31.488
+client       45   45.723   45.755   45.069   47.000
+S1           15   15.557   15.549   15.058   16.492
+S1           30   30.580   30.549   30.082   31.484
+S1           45   45.722   45.771   45.065   46.988
+S2           15   15.652   15.726   15.055   16.488
+S2           30   30.641   30.740   30.150   31.167
+S2           45   45.579   45.535   45.076   46.344
+S3           15   15.651   15.767   15.057   16.494
+S3           30   30.587   30.698   30.055   31.010
+S3           45   45.614   45.787   45.068   46.392
+S4           15   15.647   15.724   15.057   16.492
+S4           30   30.642   30.743   30.164   31.151
+S4           45   45.559   45.639   45.069   46.364
+S5           15   15.646   15.732   15.086   16.480
+S5           30   30.587   30.695   30.058   31.006
+S5           45   45.614   45.724   45.085   46.523
+S6           15   15.646   15.732   15.055   16.490
+S6           30   30.642   30.730   30.155   31.151
+S6           45   45.565   45.568   45.091   46.478
+S7           15   15.643   15.713   15.090   16.489
+S7           30   30.642   30.731   30.139   31.165
+S7           45   45.558   45.566   45.070   46.401
+S8           15   15.641   15.721   15.059   16.494
+S8           30   30.587   30.681   30.054   31.014
+S8           45   45.614   45.765   45.091   46.521
+sleep accuracy within 2 ms (mean): True
+servers stopped
